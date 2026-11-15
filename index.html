@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- Faz o site se ajustar ao celular. Não apague. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- TROQUE: título que aparece na aba do navegador e no Google -->
+  <title>Sabor da Esquina | Lanchonete</title>
+  <meta name="description" content="Lanches, porções e pastéis feitos na hora. Veja o cardápio e peça pelo WhatsApp.">
+
+  <!-- Fontes do Google (precisa de internet). Se não carregar, o navegador usa as fontes de reserva. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== CORES: troque aqui e o site inteiro muda ===== */
+    :root {
+      --vermelho: #B5301F;
+      --mostarda: #F2B632;
+      --papel: #FFFBF2;
+      --carvao: #2B1E16;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Nunito", Arial, sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--carvao);
+      background: var(--papel);
+    }
+
+    h1, h2 {
+      font-family: "Alfa Slab One", Georgia, serif;
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    a:focus-visible, .botao:focus-visible {
+      outline: 3px solid var(--carvao);
+      outline-offset: 3px;
+    }
+
+    /* ===== TOPO ===== */
+    .topo {
+      background: var(--vermelho);
+      color: var(--mostarda);
+      padding: 4rem 1.5rem 4.5rem;
+    }
+    .topo .conteudo { max-width: 960px; margin: 0 auto; }
+    .topo h1 { font-size: clamp(2.6rem, 9vw, 5.5rem); }
+    .topo p {
+      color: #FFE9C2;
+      font-size: 1.2rem;
+      max-width: 34rem;
+      margin: 1.2rem 0 2rem;
+    }
+
+    /* Botão do WhatsApp */
+    .botao {
+      display: inline-block;
+      background: var(--mostarda);
+      color: var(--carvao);
+      font-weight: 800;
+      text-decoration: none;
+      padding: 0.9rem 1.6rem;
+      border-radius: 999px;
+    }
+    .botao:hover { background: #fff; }
+
+    /* ===== CARDÁPIO ===== */
+    .secao { max-width: 960px; margin: 0 auto; padding: 3.5rem 1.5rem 0; }
+    .secao h2 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--vermelho); }
+    .secao h3 { font-size: 1.2rem; margin: 2rem 0 0.6rem; }
+
+    .item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      padding: 0.35rem 0;
+    }
+    /* linha pontilhada entre o nome e o preço */
+    .item::after {
+      content: "";
+      order: 2;
+      flex: 1;
+      border-bottom: 2px dotted rgba(43, 30, 22, 0.35);
+    }
+    .item .nome { order: 1; font-weight: 700; }
+    .item .preco { order: 3; font-weight: 800; color: var(--vermelho); white-space: nowrap; }
+    .item small { display: block; font-weight: 400; opacity: 0.75; }
+
+    /* ===== PRATO DO DIA ===== */
+    .destaque {
+      background: var(--mostarda);
+      border-radius: 18px;
+      padding: 1.6rem;
+      margin-top: 2.5rem;
+    }
+    .destaque h2 { color: var(--carvao); font-size: 1.6rem; margin-bottom: 0.4rem; }
+
+    /* ===== ONDE ESTAMOS ===== */
+    .info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+    .info h3 { margin-top: 0; }
+
+    /* ===== RODAPÉ ===== */
+    footer {
+      background: var(--carvao);
+      color: #E9DCC8;
+      text-align: center;
+      padding: 2rem 1.5rem 6rem;
+      margin-top: 4rem;
+      font-size: 0.95rem;
+    }
+
+    /* Botão fixo no rodapé do celular */
+    .zap-fixo {
+      position: fixed;
+      left: 1rem; right: 1rem; bottom: 1rem;
+      text-align: center;
+      background: #1FA855;
+      color: #fff;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 0.95rem;
+      border-radius: 999px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+    /* No computador o botão fixo some */
+    @media (min-width: 720px) {
+      .zap-fixo { display: none; }
+      footer { padding-bottom: 2rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== TOPO ===== -->
+  <header class="topo">
+    <div class="conteudo">
+      <!-- TROQUE: nome e frase da lanchonete -->
+      <h1>Sabor da Esquina</h1>
+      <p>Lanches, porções e pastéis feitos na hora. Peça pelo WhatsApp e retire ou receba em casa.</p>
+
+      <!-- TROQUE o número: 55 + DDD + número, sem espaços nem traço -->
+      <a class="botao" href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Vi%20o%20card%C3%A1pio%20e%20quero%20fazer%20um%20pedido.">
+        Pedir no WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== CARDÁPIO ===== -->
+    <section class="secao" id="cardapio">
+      <h2>Cardápio</h2>
+
+      <h3>Lanches</h3>
+      <div class="item">
+        <span class="nome">X-Burguer<small>Pão, hambúrguer, queijo, alface e tomate</small></span>
+        <span class="preco">R$ 18,00</span>
+      </div>
+      <div class="item">
+        <span class="nome">X-Bacon<small>X-Burguer com bacon crocante</small></span>
+        <span class="preco">R$ 22,00</span>
+      </div>
+      <div class="item">
+        <span class="nome">X-Tudo<small>Hambúrguer, ovo, bacon, presunto, queijo e salada</small></span>
+        <span class="preco">R$ 26,00</span>
+      </div>
+      <div class="item">
+        <span class="nome">Hot dog completo</span>
+        <span class="preco">R$ 14,00</span>
+      </div>
+
+      <h3>Porções e pastéis</h3>
+      <div class="item">
+        <span class="nome">Batata frita<small>Porção para dividir</small></span>
+        <span class="preco">R$ 20,00</span>
+      </div>
+      <div class="item">
+        <span class="nome">Pastel de carne</span>
+        <span class="preco">R$ 9,00</span>
+      </div>
+      <div class="item">
+        <span class="nome">Pastel de queijo</span>
+        <span class="preco">R$ 9,00</span>
+      </div>
+
+      <h3>Bebidas</h3>
+      <div class="item">
+        <span class="nome">Suco natural</span>
+        <span class="preco">R$ 8,00</span>
+      </div>
+      <div class="item">
+        <span class="nome">Refrigerante lata</span>
+        <span class="preco">R$ 6,00</span>
+      </div>
+
+      <!-- Para destacar uma promoção ou o prato do dia -->
+      <div class="destaque">
+        <h2>Combo da casa</h2>
+        <p>X-Bacon, batata frita pequena e refrigerante por R$ 32,00.</p>
+      </div>
+    </section>
+
+    <!-- ===== ONDE ESTAMOS ===== -->
+    <section class="secao" id="contato">
+      <h2>Venha nos visitar</h2>
+      <div class="info">
+        <div>
+          <h3>Endereço</h3>
+          <!-- TROQUE: endereço real do cliente -->
+          <p>Rua das Flores, 123<br>Centro</p>
+        </div>
+        <div>
+          <h3>Horário</h3>
+          <!-- TROQUE: horário real do cliente -->
+          <p>Terça a domingo<br>18h às 23h30<br>Segunda: fechado</p>
+        </div>
+        <div>
+          <h3>Pedidos</h3>
+          <p>Chame no WhatsApp e informe seu pedido e o endereço de entrega.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Sabor da Esquina &middot; Site de demonstração</p>
+  </footer>
+
+  <!-- Botão fixo para o celular (mesmo número do topo) -->
+  <a class="zap-fixo" href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Vi%20o%20card%C3%A1pio%20e%20quero%20fazer%20um%20pedido.">
+    Pedir no WhatsApp
+  </a>
+
+</body>
+</html>
